@@ -74,9 +74,8 @@
                 template: '<p>Loading...</p><ion-spinner></ion-spinner>'
             });
 
-            $scope.requestedOn = new Date();
-
-            manifestService.getManifest().then(function(manifest) {
+            manifestService.getManifest().then(function (manifest) {
+                $scope.requestedOn = new Date();
                 $scope.manifest = manifest;
                 $ionicLoading.hide();
             });
