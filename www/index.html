@@ -13,6 +13,10 @@
     -->
     <!--For users deploying their apps to Windows 8.1 or Android Gingerbread, platformOverrided.js
     will inject platform-specific code from the /merges folder -->
+
+    <script>
+        alert('a');
+    </script>
     <script src="js/platformOverrides.js"></script>
 
     <!-- ionic/angularjs js -->
@@ -20,18 +24,15 @@
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
-
-
-
-    <script src="js/ManifestService.js"></script>
-    <script src="js/ManifestController.js"></script>
+    
+    <script src="js/manifestService.js"></script>
+    <script src="js/manifestController.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
 </head>
 <body ng-app="starter" ng-controller="ManifestController">
-
-    <ion-pane ng-cloak>
+    <ion-pane>
         <ion-header-bar class="bar-positive">
             <h1 class="title">PST Manifest</h1>
             <button class="button" ng-click="refresh()" style="margin-left: 10px">

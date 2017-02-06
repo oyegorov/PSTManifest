@@ -1,4 +1,4 @@
-﻿angular.module('starter.controllers', [])
+﻿angular.module('starter', ['ionic'])
     .factory('manifestService', function ($http, $filter) {
         var timeout = 8000;
         var manifestUrl = 'http://parachuteschool.com/manifest.json';
