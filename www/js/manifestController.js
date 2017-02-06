@@ -70,11 +70,11 @@
         }
 
         $scope.refresh = function () {
-            $scope.requestedOn = new Date();
-
             $ionicLoading.show({
                 template: '<p>Loading...</p><ion-spinner></ion-spinner>'
             });
+
+            $scope.requestedOn = new Date();
 
             manifestService.getManifest().then(function(manifest) {
                 $scope.manifest = manifest;
