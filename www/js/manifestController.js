@@ -1,5 +1,16 @@
 ﻿angular.module('starter')
     .controller('ManifestController', function ($scope, $ionicLoading, manifestService) {
+        $scope.showActiveLoadsOnly = true;
+
+        $scope.toggleFilter = function () {
+            $scope.showActiveLoadsOnly = !$scope.showActiveLoadsOnly;
+            $scope.apply();
+        }
+
+        $scope.loadFilter = function(load) {
+            return !$scope.showActiveLoadsOnly || (load.status != 1 && load.status != 5);
+        }
+
         $scope.getStatusText = function(status) {
             switch (status) {
                 case 1:

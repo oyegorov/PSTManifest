@@ -60,7 +60,19 @@
             </div>
             
             <div ng-show="manifest != null && manifest.loads != null">
-                <div class="card" ng-repeat="load in manifest.loads">
+                <ul class="card">
+                    <li class="item item-toggle">
+                        Active loads only
+                        <label class="toggle toggle-calm">
+                            <input type="checkbox" ng-click="toggleFilter()" checked>
+                            <div class="track">
+                                <div class="handle"></div>
+                            </div>
+                        </label>
+                    </li>
+                </ul>
+
+                <div class="card" ng-repeat="load in filteredLoads = (manifest.loads | filter: loadFilter)">
                     <div class="item item-divider" style="font-size: 18px">
                         <span style="float: left"><b>{{load.name}}</b></span>
                         <span style="float: right; color: {{getTimeDifferenceInfo(load.scheduledTakeOffTime).past ? 'red' : 'green'}}">{{getTimeDifferenceInfo(load.scheduledTakeOffTime).text}}</span>
@@ -70,10 +82,15 @@
                             <b>{{jumper.name}}</b> ({{jumper.jumpType}})
                         </div>
                         <p>
-                        <div style="font-size:12px">
+                        <div style="font-size: 12px">
                             <span style="float: left;">Status: {{getStatusText(load.status)}}</span>
                             <span style="float: right;" ng-hide="getTimeDifferenceInfo(load.scheduledTakeOffTime).past">{{load.jumperCapacity - load.currentJumpers}} slots left</span>
                         </div>
+                    </div>
+                </div>
+                <div class="card" ng-hide="filteredItems.length" style="color: #333333">
+                    <div class="item item-text-wrap" style="text-align: center">
+                        There are no active loads
                     </div>
                 </div>
             </div>
