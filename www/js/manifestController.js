@@ -1,6 +1,23 @@
 ﻿angular.module('starter')
     .controller('ManifestController', function ($scope, $ionicLoading, manifestService) {
-        $scope.getTimeDifferenceInfo = function(date) {
+        $scope.getStatusText = function(status) {
+            switch (status) {
+                case 1:
+                    return 'Open';
+                case 2:
+                    return 'On Call';
+                case 3:
+                    return 'In Air';
+                case 4:
+                    return 'Landed';
+                case 5:
+                    return 'Closed';
+                default:
+                    return 'Unknown';
+            }
+        }
+
+        $scope.getTimeDifferenceInfo = function (date) {
             if ($scope.requestedOn == null)
                 return 0;
 
@@ -22,9 +39,9 @@
                     past: false
                 }
             };
-            if (hours > 24) {
+            if (hours > 48) {
                 return {
-                    text: 'Not today',
+                    text: past ? 'Long ago' : 'Future',
                     past: true
                 }
             };

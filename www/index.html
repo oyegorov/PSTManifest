@@ -38,7 +38,7 @@
           </button>
       </ion-header-bar>
         <ion-content>
-            <div class="card">
+            <div class="card" style="color: #333333">
                 <div class="item item-text-wrap" ng-show="manifest != null">
                     <div>
                         <b>Requested on</b>: <p>{{requestedOn.toLocaleString("en-US")}}
@@ -53,7 +53,7 @@
                 </div>
             </div>
             
-            <div class="card" ng-show="manifest != null && manifest.loads == null">
+            <div class="card" ng-show="manifest != null && manifest.loads == null" style="color: #333333">
                 <div class="item item-text-wrap" style="text-align: center">
                     No manifested loads available
                 </div>
@@ -61,15 +61,19 @@
             
             <div ng-show="manifest != null && manifest.loads != null">
                 <div class="card" ng-repeat="load in manifest.loads">
-                    <div class="item item-divider">
+                    <div class="item item-divider" style="font-size: 18px">
                         <span style="float: left"><b>{{load.name}}</b></span>
                         <span style="float: right; color: {{getTimeDifferenceInfo(load.scheduledTakeOffTime).past ? 'red' : 'green'}}">{{getTimeDifferenceInfo(load.scheduledTakeOffTime).text}}</span>
                     </div>
-                    <div class="item item-text-wrap">
+                    <div class="item item-text-wrap" style="color: #333333">
                         <div ng-repeat="jumper in load.jumpers">
-                            {{jumper.name}} ({{jumper.jumpType}})
+                            <b>{{jumper.name}}</b> ({{jumper.jumpType}})
                         </div>
-                        <div style="text-align: right; font-size:12px" ng-hide="getTimeDifferenceInfo(load.scheduledTakeOffTime).past">{{load.jumperCapacity - load.currentJumpers}} slots left</div>
+                        <p>
+                        <div style="font-size:12px">
+                            <span style="float: left;">Status: {{getStatusText(load.status)}}</span>
+                            <span style="float: right;" ng-hide="getTimeDifferenceInfo(load.scheduledTakeOffTime).past">{{load.jumperCapacity - load.currentJumpers}} slots left</span>
+                        </div>
                     </div>
                 </div>
             </div>
