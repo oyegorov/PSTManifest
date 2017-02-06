@@ -32,7 +32,7 @@
                     var manifestRecords = manifestData.ManifestInfoRecords;
                     if (manifestRecords != null && manifestRecords.length > 0) {
                         loads = [];
-                        var sortedRecords = $filter('orderBy')(manifestRecords, ['-ScheduledTakeOffTime', 'DisplayOrder']);
+                        var sortedRecords = $filter('orderBy')(manifestRecords, ['ScheduledTakeOffTime', 'DisplayOrder']);
 
                         var currentLoad = null;
                         for (var i = 0; i < sortedRecords.length; i++) {
