@@ -8,7 +8,7 @@
         }
 
         $scope.loadFilter = function(load) {
-            return !$scope.showActiveLoadsOnly || (load.status != 1 && load.status != 5);
+            return !$scope.showActiveLoadsOnly || (load.status != 4 && load.status != 5);
         }
 
         $scope.getStatusText = function(status) {
