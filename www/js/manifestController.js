@@ -1,4 +1,4 @@
-﻿angular.module('starter')
+﻿angular.module('starter.controllers')
     .controller('ManifestController', function ($scope, $ionicLoading, manifestService) {
         $scope.showActiveLoadsOnly = true;
 

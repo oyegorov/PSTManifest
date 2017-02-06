@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
@@ -11,7 +11,6 @@
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
-
     <!--For users deploying their apps to Windows 8.1 or Android Gingerbread, platformOverrided.js
     will inject platform-specific code from the /merges folder -->
     <script src="js/platformOverrides.js"></script>
@@ -22,21 +21,23 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
+
 
     <script src="js/ManifestService.js"></script>
     <script src="js/ManifestController.js"></script>
-  </head>
-  <body ng-app="starter" ng-controller="ManifestController">
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="starter" ng-controller="ManifestController">
 
     <ion-pane ng-cloak>
-      <ion-header-bar class="bar-positive">
-          <h1 class="title">PST Manifest</h1>
-          <button class="button" ng-click="refresh()" style="margin-left: 10px">
-              <i class="icon ion-refresh"></i>
-          </button>
-      </ion-header-bar>
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">PST Manifest</h1>
+            <button class="button" ng-click="refresh()" style="margin-left: 10px">
+                <i class="icon ion-refresh"></i>
+            </button>
+        </ion-header-bar>
         <ion-content>
             <div class="card" style="color: #333333">
                 <div class="item item-text-wrap" ng-show="manifest != null">
@@ -47,18 +48,18 @@
                         <b>Manifest updated:</b> <p>{{manifest.snapshotDateTime.toLocaleString("en-US")}}
                     </div>
                 </div>
-                
+
                 <div class="item item-text-wrap" ng-show="manifest == null && requestedOn == null">
                     Could not retrieve manifest information. Make sure Internet connection is available and try again.
                 </div>
             </div>
-            
+
             <div class="card" ng-show="manifest != null && manifest.loads == null" style="color: #333333">
                 <div class="item item-text-wrap" style="text-align: center">
                     No manifested loads available
                 </div>
             </div>
-            
+
             <div ng-show="manifest != null && manifest.loads != null">
                 <ul class="card">
                     <li class="item item-toggle">
@@ -82,10 +83,10 @@
                             <b>{{jumper.name}}</b> ({{jumper.jumpType}})
                         </div>
                         <p>
-                        <div style="font-size: 12px">
-                            <span style="float: left;">Status: {{getStatusText(load.status)}}</span>
-                            <span style="float: right;" ng-hide="getTimeDifferenceInfo(load.scheduledTakeOffTime).past">{{load.jumperCapacity - load.currentJumpers}} slots left</span>
-                        </div>
+                            <div style="font-size: 12px">
+                                <span style="float: left;">Status: {{getStatusText(load.status)}}</span>
+                                <span style="float: right;" ng-hide="getTimeDifferenceInfo(load.scheduledTakeOffTime).past">{{load.jumperCapacity - load.currentJumpers}} slots left</span>
+                            </div>
                     </div>
                 </div>
                 <div class="card" ng-hide="filteredItems.length" style="color: #333333">
@@ -96,5 +97,5 @@
             </div>
         </ion-content>
     </ion-pane>
-  </body>
+</body>
 </html>

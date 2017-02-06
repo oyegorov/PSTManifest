@@ -1,4 +1,4 @@
-﻿angular.module('starter')
+﻿angular.module('starter.controllers', [])
     .factory('manifestService', function ($http, $filter) {
         var timeout = 8000;
         var manifestUrl = 'http://parachuteschool.com/manifest.json';
@@ -30,7 +30,7 @@
 
                     var loads = null;
                     var manifestRecords = manifestData.ManifestInfoRecords;
-                    if (manifestRecords != null) {
+                    if (manifestRecords != null && manifestRecords.length > 0) {
                         loads = [];
                         var sortedRecords = $filter('orderBy')(manifestRecords, ['-ScheduledTakeOffTime', 'DisplayOrder']);
 
