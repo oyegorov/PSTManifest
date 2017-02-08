@@ -42,7 +42,7 @@
             difference_ms = difference_ms / 60;
             var minutes = Math.floor(difference_ms) % 60;
             difference_ms = difference_ms / 60;
-            var hours = Math.floor(difference_ms) % 24;
+            var hours = Math.floor(difference_ms);
 
             if (minutes == 0 && hours == 0) {
                 return {
@@ -50,7 +50,7 @@
                     past: false
                 }
             };
-            if (hours > 48) {
+            if (hours > 96) {
                 return {
                     text: past ? 'Long ago' : 'Future',
                     past: true
