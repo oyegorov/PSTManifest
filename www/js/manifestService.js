@@ -22,7 +22,7 @@
 
         return {
             getManifest: function () {
-                return $http.get(manifestUrl, { timeout: timeout }).then(function (response) {
+                return $http.get(manifestUrl + '?seed=' + Math.floor((Math.random() * 1000000000) + 1), { timeout: timeout }).then(function (response) {
                     var manifestData = response.data;
 
                     if (manifestData == null)
