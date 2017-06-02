@@ -1,10 +1,10 @@
 {
-  "name": "io.cordova.myappab5df4",
-  "app_id": "",
-  "gulpDependantTasks" : [
+  "name": "PST Manifest",
+  "app_id": "557aaa75",
+  "gulpDependantTasks": [
     "sass"
-  ],  
-   "gulpStartupTasks": [        
+  ],
+  "gulpStartupTasks": [
     "watch"
   ]
 }
