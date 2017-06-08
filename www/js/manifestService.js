@@ -32,7 +32,7 @@
                     var manifestRecords = manifestData.ManifestInfoRecords;
                     if (manifestRecords != null && manifestRecords.length > 0) {
                         loads = [];
-                        var sortedRecords = $filter('orderBy')(manifestRecords, ['ScheduledTakeOffTime', 'DisplayOrder']);
+                        var sortedRecords = $filter('orderBy')(manifestRecords, ['-ScheduledTakeOffTime', 'DisplayOrder']);
 
                         var currentLoad = null;
                         for (var i = 0; i < sortedRecords.length; i++) {
@@ -40,7 +40,7 @@
                             if (currentLoad == null || currentLoad.name != currentRecord.FromManifestNumber) {
                                 currentLoad = {
                                     name: currentRecord.FromManifestNumber,
-                                    scheduledTakeOffTime: new Date(Date.parse(currentRecord.ScheduledTakeOffTime) + new Date().getTimezoneOffset() * 60 * 1000),
+                                    scheduledTakeOffTime: new Date(Date.parse(currentRecord.ScheduledTakeOffTime)),
                                     status: currentRecord.Status,
                                     jumperCapacity: currentRecord.JumperCapacity,
                                     currentJumpers: currentRecord.CurrentJumpers,
